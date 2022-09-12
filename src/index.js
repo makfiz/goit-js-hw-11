@@ -17,6 +17,11 @@ window.addEventListener('resize', throttle(checkPosition, 400))
 async function onSearch(e) {
     e.preventDefault()
 
+    if (e.currentTarget.elements.searchQuery.value == '') {
+        Notify.failure("Search bar is empty, please enter something!")
+        return
+    }
+
     imgApiService.query = e.currentTarget.elements.searchQuery.value
     imgApiService.page = 1
     
@@ -30,9 +35,7 @@ async function onSearch(e) {
     Notify.success(`Hooray! We found ${response.data.totalHits} images.`)
     window.scrollTo(0,0)
     containerGallery.innerHTML = ''
-    renderGallery(searchResults)
-    
-    
+    renderGallery(searchResults) 
 }
 
 // async function loadMore() {

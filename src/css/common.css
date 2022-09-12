@@ -16,7 +16,7 @@ body {
   background-color: #6a5acd;
   padding-top: 10px;
   padding-bottom: 10px;
-  opacity: 0.3;
+  opacity: 0.9;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
