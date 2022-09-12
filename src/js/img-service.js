@@ -6,7 +6,6 @@ export default class ImgApiService {
      }
     
     async fetchIMG() {
-        console.log(this)
         const axios = require('axios').default;
         axios.defaults.baseURL = 'https://pixabay.com/api';
         const API_KEY = '29838677-bd4eb1e45df6d4e49f9d08181';
