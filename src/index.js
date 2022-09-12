@@ -11,8 +11,8 @@ const containerGallery = document.querySelector(".gallery")
 
 searchForm.addEventListener("submit", onSearch)
 // loadMoreBtn.addEventListener("click", loadMore)
-window.addEventListener('scroll', throttle(checkPosition, 400))
-// window.addEventListener('resize', throttle(checkPosition, 400))
+window.addEventListener('scroll', throttle(loadMoreOnScroll, 400))
+window.addEventListener('resize', throttle(loadMoreOnScroll, 400))
 
 async function onSearch(e) {
     e.preventDefault()
@@ -98,8 +98,8 @@ function onClickShowSimplelightbox(evt) {
 
 
 
-async function checkPosition() {
-
+async function loadMoreOnScroll() {
+    if (containerGallery.innerHTML === '') return
   const height = document.body.offsetHeight
   const screenHeight = window.innerHeight
   const scrolled = window.scrollY
