@@ -96,26 +96,24 @@ function onClickShowSimplelightbox(evt) {
 //     }
 // })
 
-
-
 async function loadMoreOnScroll() {
     if (containerGallery.innerHTML === '') return
-  const height = document.body.offsetHeight
-  const screenHeight = window.innerHeight
-  const scrolled = window.scrollY
-  const threshold = height - screenHeight / 4
-  const position = scrolled + screenHeight
+    const height = document.body.offsetHeight
+    const screenHeight = window.innerHeight
+    const scrolled = window.scrollY
+    const threshold = height - screenHeight / 4
+    const position = scrolled + screenHeight
 
-  if (position >= threshold) {
-    const response = await imgApiService.fetchIMG()
+    if (position >= threshold) {
+        const response = await imgApiService.fetchIMG()
 
-    if (Math.sign(response.data.totalHits - 40 * (imgApiService.getpage - 1)) == -1) {
-        Notify.failure("We're sorry, but you've reached the end of search results.")
-        return 
+        if (Math.sign(response.data.totalHits - 40 * (imgApiService.getpage - 1)) == -1) {
+            Notify.failure("We're sorry, but you've reached the end of search results.")
+            return 
+        }
+        const searchResults = response.data.hits
+        renderGallery(searchResults)
     }
-    const searchResults = response.data.hits
-    renderGallery(searchResults)
-  }
 }
 
 function throttle(callee, timeout) {
