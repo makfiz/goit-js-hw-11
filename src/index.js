@@ -12,7 +12,7 @@ const containerGallery = document.querySelector(".gallery")
 searchForm.addEventListener("submit", onSearch)
 // loadMoreBtn.addEventListener("click", loadMore)
 window.addEventListener('scroll', throttle(checkPosition, 400))
-window.addEventListener('resize', throttle(checkPosition, 400))
+// window.addEventListener('resize', throttle(checkPosition, 400))
 
 async function onSearch(e) {
     e.preventDefault()
